@@ -35,7 +35,7 @@ export default function Form(props) {
       <div className='container'>
         <h1>{props.heading}</h1>
         <div className='mb-3'>
-          <textarea value={text} onChange={handle}  placeholder="Enter the text here: " className='form-control' id="myBox" rows={8}></textarea>
+          <textarea value={text} onChange={handle}  placeholder="Enter the text here: " className={`form-control bg-${props.mode} text-${props.mode==='light'?'dark':'light'}`} id="myBox" rows={8}></textarea>
         </div>
         <button onClick={upper}  className='btn btn-primary mx-2'>Convert to upper</button>
         <button onClick={lower}  className='btn btn-primary mx-2'>Convert to lower</button>
@@ -47,10 +47,10 @@ export default function Form(props) {
       <div className="container my-5">
         <h2>Text summary:</h2>
         <p>
-          {text.split(" ").length} words <br/> {text.length} Characters
+          {text.length>0?text.split(" ").length:0} words <br/> {text.length} Characters
         </p>
         <h3>Preview:</h3>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter something............."}</p>
       </div>
     </>
   )
