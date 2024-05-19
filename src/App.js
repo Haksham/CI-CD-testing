@@ -2,10 +2,17 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Form  from './components/Form';
 import About from './components/About';
+import { useState } from 'react';
 function App() {
+  const [mode,setmode]=useState('light');
+  var dtoggle=()=>{
+    if(mode==='light'){
+      setmode('dark')
+    }else{setmode('light')}
+  }
   return (
     <>
-    <Navbar title="Haks"/>
+    <Navbar title="Haks" mode={mode} dtoggle={dtoggle}/>
     <div className="container my-3">
       <Form heading="fill them please"/>
     </div>
