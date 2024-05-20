@@ -5,18 +5,22 @@ export default function Form(props) {
   const upper=()=>{
     let newt = text.toUpperCase();
     setText(newt);
+    props.showAlert("Converted to uppercase","danger");
   }
   const lower=()=>{
     let newt = text.toLowerCase();
     setText(newt);
+    props.showAlert("Converted to lowercase","warning");
   }
   const switchs=()=>{
     let newt = text;
     setText(newt);
+    props.showAlert("Converted to switch","info");
   }
   const clear=()=>{
     let newt = "";
     setText(newt);
+    props.showAlert("Cleared","dark");
   }
   const copy=()=>{
     var text=document.getElementById("myBox");
@@ -26,6 +30,10 @@ export default function Form(props) {
   const expspace=()=>{
     let ner=text.split(/[ ]+/);
     setText(ner.join(" "));
+  }
+  const wcount=()=>{
+    let ner=text.split(/[ ]+/);
+    return ner.join(" ").split(" ").length;
   }
   const handle=(event)=>{
     setText(event.target.value);
@@ -47,7 +55,7 @@ export default function Form(props) {
       <div className="container my-5">
         <h2>Text summary:</h2>
         <p>
-          {text.length>0?text.split(" ").length:0} words <br/> {text.length} Characters
+          {text.length>0?wcount():0} words <br/> {text.length} Characters
         </p>
         <h3>Preview:</h3>
         <p>{text.length>0?text:"Enter something............."}</p>
