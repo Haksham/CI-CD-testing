@@ -18,7 +18,7 @@ jobs:
       - name: Build, tag, and push image to DockerHub
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-          IMAGE_NAME: CI/CD-Testing
+          IMAGE_NAME: ci/cd-testing
         run: |
           docker build -t $DOCKERHUB_USERNAME/$IMAGE_NAME -f DockerFile .
           docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:latest
