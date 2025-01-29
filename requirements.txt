@@ -1,2 +1,1 @@
-pytest
-Flask
+Flask==2.2.3
